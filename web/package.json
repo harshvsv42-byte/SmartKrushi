@@ -1,0 +1,40 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "expo:start": "cd ..\\mobile && npx expo start",
+    "expo:clean": "cd ..\\mobile && npx expo start --clear",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.18.1",
+    "expo": "^57.0.26",
+    "expo-location": "~57.0.20",
+    "expo-status-bar": "~57.0.1",
+    "i18next": "^26.3.6",
+    "lucide-react": "^1.26.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-i18next": "^17.0.11",
+    "react-native": "0.86.3",
+    "react-native-web": "^0.21.3",
+    "react-native-webview": "13.16.1",
+    "react-router-dom": "^7.18.1"
+  },
+  "devDependencies": {
+    "@rolldown/binding-win32-x64-msvc": "^1.1.5",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "autoprefixer": "^10.5.4",
+    "oxlint": "^1.71.0",
+    "postcss": "^8.5.23",
+    "tailwindcss": "^3.4.19",
+    "vite": "^8.1.1"
+  }
+}

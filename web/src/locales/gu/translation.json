@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "dashboard": "ડેશબોર્ડ",
+    "fieldMap": "ક્ષેત્ર નકશો",
+    "diagnostics": "નિદાન",
+    "market": "બજાર",
+    "schemes": "યોજનાઓ"
+  },
+  "sidebar": {
+    "fieldTools": "ક્ષેત્ર સાધનો",
+    "insights": "AI-આધારિત આંતરદૃષ્ટિ",
+    "weather": "હવામાન માહિતી",
+    "soil": "જમીન વિશ્લેષણ",
+    "calendar": "પાક કેલેન્ડર",
+    "alerts": "ચેતવણીઓ",
+    "generateReport": "રિપોર્ટ બનાવો",
+    "support": "સહાય"
+  },
+  "dashboard": {
+    "weather": {
+      "today": "આજે",
+      "humidity": "ભેજ",
+      "wind": "પવન"
+    },
+    "soil": {
+      "health": "જમીનનું આરોગ્ય",
+      "nitrogen": "નાઇટ્રોજન (N)",
+      "moisture": "ભેજનું સ્તર",
+      "warning": "ચેતવણી: 30% થી નીચે"
+    },
+    "briefing": {
+      "title": "સવારની માહિતી",
+      "irrigation": "સિંચાઈ ચેતવણી",
+      "frost": "હિમ ચેતવણી",
+      "activate": "હવે સક્રિય કરો"
+    }
+  },
+  "market": {
+    "title": "બજાર અને સંસાધન માહિતી",
+    "subtitle": "પંજાબ મધ્ય પ્રદેશ માટે રિયલ-ટાઇમ અર્થશાસ્ત્ર",
+    "live": "બજાર લાઈવ",
+    "prices": "મંડી/બજાર કિંમતો",
+    "updated": "અપડેટ: 2 મિનિટ પહેલા",
+    "wheat": "ઘઉં",
+    "rice": "ચોખા (ડાંગર)",
+    "cotton": "કપાસ",
+    "schemes": "સરકારી યોજનાઓ",
+    "eligible": "તમારા માટે પાત્ર યોજનાઓ",
+    "apply": "સરળ અરજી"
+  },
+  "auth": {
+    "title": "સ્માર્ટ એગ્રીકલ્ચરમાં સાઇન ઇન કરો",
+    "subtitle": "ચકાસણી OTP મેળવવા માટે તમારો મોબાઇલ નંબર દાખલ કરો",
+    "phoneLabel": "મોબાઇલ નંબર",
+    "phonePlaceholder": "દા.ત. 9876543210",
+    "sendOtp": "OTP મોકલો",
+    "enterOtp": "૬-અંકનો OTP દાખલ કરો",
+    "verifyAndSignIn": "ચકાસો અને સાઇન ઇન કરો",
+    "resendOtp": "ફરીથી OTP મોકલો",
+    "invalidPhone": "કૃપા કરીને માન્ય ૧૦-અંકનો મોબાઇલ નંબર દાખલ કરો.",
+    "sendOtpFailed": "OTP મોકલવામાં નિષ્ફળ. કૃપા કરીને ફરી પ્રયાસ કરો.",
+    "invalidOtp": "કૃપા કરીને માન્ય ૬-અંકનો OTP દાખલ કરો.",
+    "verifyFailed": "અમાન્ય OTP અથવા ચકાસણીની મુદત પૂરી થઈ ગઈ છે.",
+    "changePhone": "મોબાઇલ નંબર બદલો",
+    "logout": "લૉગઆઉટ"
+  },
+  "profile": {
+    "title": "ખેડૂત પ્રોફાઇલ",
+    "personalInfo": "વ્યક્તિગત માહિતી",
+    "farmLocation": "ખેતરનું સ્થાન",
+    "preferences": "પસંદગીઓ",
+    "fullName": "પૂરું નામ",
+    "phone": "મોબાઇલ નંબર",
+    "email": "ઇમેઇલ સરનામું",
+    "state": "રાજ્ય",
+    "district": "જિલ્લો",
+    "taluka": "તાલુકો",
+    "village": "ગામ",
+    "farmSize": "ખેતરનું કદ (હેક્ટર)",
+    "crops": "મુખ્ય પાકો",
+    "language": "પસંદગીની ભાષા",
+    "save": "ફેરફારો સાચવો",
+    "cancel": "રદ કરો",
+    "edit": "પ્રોફાઇલમાં ફેરફાર કરો",
+    "updated": "પ્રોફાઇલ સફળતાપૂર્વક અપડેટ થઈ!",
+    "saveSuccess": "પ્રોફાઇલ સફળતાપૂર્વક અપડેટ થઈ!",
+    "saveError": "પ્રોફાઇલ સાચવવામાં નિષ્ફળ. કૃપા કરીને ફરી પ્રયાસ કરો."
+  },
+  "home": {
+    "greeting": "નમસ્તે, સુપ્રભાત",
+    "changeLocation": "સ્થાન બદલો",
+    "searchPlaceholder": "અહીં શોધો...",
+    "weather": {
+      "humidity": "ભેજ",
+      "rainfall": "વરસાદ",
+      "pressure": "દબાણ",
+      "windSpeed": "પવનની ઝડપ",
+      "sunrise": "સૂર્યોદય",
+      "sunset": "સૂર્યાસ્ત"
+    },
+    "categoriesTitle": "કેટેગરી પ્રમાણે રોકાણ",
+    "categories": {
+      "duration": "સમયગાળો",
+      "soil": "માટી",
+      "lowRisk": "ઓછું જોખમ",
+      "protection": "સુરક્ષા"
+    },
+    "bestOffers": "શ્રેષ્ઠ ઑફર્સ",
+    "viewAll": "બધા જુઓ",
+    "bottomNav": {
+      "home": "હોમ",
+      "allFarms": "બધા ખેતરો",
+      "stats": "આંકડા",
+      "myProfile": "મારો પ્રોફાઇલ"
+    }
+  }
+}

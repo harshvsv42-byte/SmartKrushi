@@ -1,0 +1,99 @@
+# ==============================================================================
+# SMARTKRUSHI MOBILE FRONTEND — SYSTEM & RUNTIME REQUIREMENTS
+# ==============================================================================
+# Note: React Native and Expo use JavaScript/npm manifests (package.json).
+# This file serves as the official frontend environment specification and guide.
+# Authoritative package dependencies are locked in package.json & package-lock.json.
+# ==============================================================================
+
+1. SYSTEM PREREQUISITES
+--------------------------------------------------------------------------------
+- Operating System : Windows 10/11, macOS, or Linux (x64 / ARM64)
+- Node.js Runtime  : Node.js LTS v20.x or v22.x (Verified with Node v22.12.0)
+- Package Manager  : npm v10.x+ (Verified with npm v10.9.0)
+- Python Runtime   : Not required for frontend (used by backend)
+- Java SDK (Opt.)  : OpenJDK 17 (Required only for local Android SDK compilation)
+- Android Studio   : Optional for Expo Go; required if using Android Emulator or local SDK
+
+2. GLOBAL CLI & DEV TOOLS
+--------------------------------------------------------------------------------
+- Expo CLI         : Bundled with project (invoked via `npx expo`)
+- EAS CLI          : `npm install -g eas-cli` or `npx eas-cli@latest`
+  (Required for cloud Android APK generation via Expo Application Services)
+
+3. DEPENDENCY INSTALLATION
+--------------------------------------------------------------------------------
+From the `smartkrushi/frontend` directory:
+```bash
+npm install
+```
+Or to ensure exact lockfile fidelity:
+```bash
+npm ci
+```
+
+4. STARTING THE FRONTEND (DEVELOPMENT SERVER)
+--------------------------------------------------------------------------------
+To start the Expo development server with cache clearing:
+```bash
+npx expo start --clear
+```
+Interactive terminal shortcuts once Metro bundler starts:
+- Press 'a' : Open in Android emulator or attached USB device
+- Press 'w' : Open in web browser (React Native for Web)
+- Press 'r' : Reload current app instance
+- Press 'm' : Toggle developer menu on device
+- Scan the printed QR code using Expo Go on a physical Android device.
+
+5. RUNNING ON ANDROID DEVICES & EMULATORS
+--------------------------------------------------------------------------------
+A. Android Emulator:
+   1. Launch Android Studio > Virtual Device Manager (AVD) > Start an AVD.
+   2. Ensure `EXPO_PUBLIC_API_BASE_URL` in `.env` is set to:
+      EXPO_PUBLIC_API_BASE_URL=http://10.0.2.2:8000/api/v1
+      (10.0.2.2 routes directly to the host machine's localhost)
+   3. Run `npx expo start` and press `a`.
+
+B. Physical Android Phone (Expo Go):
+   1. Install "Expo Go" from the Google Play Store.
+   2. Connect the phone to the same Wi-Fi network as the development computer.
+   3. Find computer's local Wi-Fi IPv4 address (e.g. `ipconfig` -> 192.168.1.15).
+   4. Set `EXPO_PUBLIC_API_BASE_URL` in `frontend/.env`:
+      EXPO_PUBLIC_API_BASE_URL=http://<YOUR_LOCAL_IP>:8000/api/v1
+   5. Start the backend with `0.0.0.0:8000` (LAN accessible).
+   6. Run `npx expo start` and scan the QR code using Expo Go.
+
+6. BUILDING A STANDALONE ANDROID APK (EAS CLOUD WORKFLOW)
+--------------------------------------------------------------------------------
+The project is pre-configured with `eas.json` using the `preview` profile for
+generating installable `.apk` packages (bypassing Google Play Store requirement).
+
+1. Log into your Expo account:
+   ```bash
+   npx eas-cli login
+   ```
+2. Link or verify EAS Project ID:
+   Configured in `app.json` under `expo.extra.eas.projectId`.
+3. Set the backend API URL for the build:
+   Ensure production or LAN backend URL is accessible to the phone.
+4. Trigger the APK build:
+   ```bash
+   npm run build:apk
+   ```
+   (Equivalent to: `npx eas-cli build -p android --profile preview`)
+5. Once build completes, download the generated `.apk` from the printed URL
+   and install directly on any Android device.
+
+7. AUTHORITATIVE DEPENDENCIES SUMMARY
+--------------------------------------------------------------------------------
+Primary Core Libraries (see package.json for exact versions):
+- expo                           : ~57.0.26
+- react                          : 19.2.3
+- react-native                   : 0.86.3
+- expo-router                    : ~57.0.24 (File-based navigation)
+- @expo/vector-icons             : ^15.1.1 (Ionicons, MaterialIcons)
+- expo-location                  : ~57.0.20 (GPS coordinates for weather/soil)
+- expo-image-picker              : ~57.0.20 (Camera & gallery for crop diagnosis)
+- react-native-safe-area-context : ~5.7.0
+- react-native-screens           : ~4.26.0
+- react-native-web               : ^0.21.2

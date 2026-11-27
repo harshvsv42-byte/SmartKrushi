@@ -1,0 +1,6 @@
+state,district,taluka,village,soil_name,soil_type,soil_ph,nitrogen,phosphorus,potassium,organic_carbon,electrical_conductivity,sand_percentage,silt_percentage,clay_percentage,sample_date,data_source,remarks
+Gujarat,Valsad,Pardi,Killa-Pardi,Coastal Loam,Alluvial,6.8,310,18.5,210,0.72,0.45,45,25,30,2024-05-15,Soil Health Card,Optimal for fruit orchards and paddy
+Gujarat,Surat,Bardoli,Kadod,Heavy Black,Black,7.2,340,22.0,280,0.85,0.50,15,35,50,2024-05-20,District Lab,High organic carbon suitable for sugarcane
+Gujarat,Ahmedabad,Sanand,Bopal,Sandy Loam,Sandy Loam,7.8,210,8.5,290,0.42,0.95,60,25,15,2024-05-25,KVK Lab,Low phosphorus and nitrogen requires amendment
+Gujarat,Rajkot,Gondal,Ribda,Medium Black,Black,7.4,260,14.0,340,0.58,0.60,30,30,40,2024-06-01,Field Test,Excellent potassium levels for cotton
+Gujarat,Mehsana,Unjha,Kheralu,Light Loam,Sandy Loam,7.6,190,12.0,160,0.35,0.40,65,20,15,2024-06-05,Research Station,Suitable for cumin and mustard with drip

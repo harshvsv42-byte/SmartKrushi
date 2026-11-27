@@ -1,0 +1,105 @@
+Created At: 2026-11-21T12:11:50+05:30
+Completed At: 2026-11-21T12:11:51+05:30
+Created At: 2026-11-21T12:11:50+05:30
+Completed At: 2026-11-21T12:11:51+05:30
+Showing lines 1-100 of 160
+1: import React, { useState } from 'react';
+2: import { useNavigate } from 'react-router-dom';
+3: import { MapPin, AlertCircle, RefreshCw } from 'lucide-react';
+4: import MobileHeader from '../components/mobile/MobileHeader';
+5: import MobileWeatherCard from '../components/mobile/MobileWeatherCard';
+6: import MobileCategoryGrid from '../components/mobile/MobileCategoryGrid';
+7: import GujaratMandiTicker from '../components/market/GujaratMandiTicker';
+8: import MobileFeaturedOffers from '../components/mobile/MobileFeaturedOffers';
+9: import MobileFacilityDrawer from '../components/mobile/MobileFacilityDrawer';
+10: import { useApp } from '../context/AppContext';
+11: 
+12: const HomePage = () => {
+13:   const navigate = useNavigate();
+14:   const {
+15:     location,
+16:     selectedDistrict,
+17:     setSelectedDistrict,
+18:     weather: weatherData,
+19:     loadingWeather: isLoadingWeather,
+20:     permissionStatus,
+21:     permissionError,
+22:     requestDeviceLocation,
+23:     setManualDistrict
+24:   } = useApp();
+25: 
+26:   const [searchQuery, setSearchQuery] = useState('');
+27:   const [activeDrawer, setActiveDrawer] = useState(null); // 'alerts', 'offer', etc.
+28:   const [selectedOffer, setSelectedOffer] = useState(null);
+29: 
+30:   const handleSelectDistrict = (district) => {
+31:     if (setManualDistrict) {
+32:       setManualDistrict(district);
+33:     } else if (setSelectedDistrict) {
+34:       setSelectedDistrict(district);
+35:     }
+36:   };
+37: 
+38:   const handleSelectCategory = (type) => {
+39:     if (type === 'calendar' || type === 'duration' || type === 'crops') {
+40:       navigate('/crops');
+41:     } else if (type === 'soil') {
+42:       navigate('/soil');
+43:     } else if (type === 'diagnostics' || type === 'protection') {
+44:       navigate('/diagnostics');
+45:     } else {
+46:       setActiveDrawer(type);
+47:     }
+48:   };
+49: 
+50:   const activeDistrictName = selectedDistrict?.district || selectedDistrict?.district_name || selectedDistrict?.name || location?.district || 'Ahmedabad';
+51: 
+52:   return (
+53:     <div className="w-full bg-[#F0F4F1] min-h-screen pb-16 md:pb-12">
+54:       <div className="w-full max-w-5xl mx-auto md:px-4">
+55:         {/* 1. Header (Emerald Green, Greetings, Search, Location, Profile Avatar) */}
+56:         <MobileHeader
+57:           selectedDistrict={selectedDistrict}
+58:           onSelectDistrict={handleSelectDistrict}
+59:           searchQuery={searchQuery}
+60:           setSearchQuery={setSearchQuery}
+61:         />
+62: 
+63:         {/* Location Permission Notification Banner if Denied / Error */}
+64:         {(permissionStatus === 'denied' || permissionError) && (
+65:           <div className="mx-4 mt-2 mb-1 p-3 bg-amber-50/90 border border-amber-200/80 rounded-2xl flex items-center justify-between gap-2 shadow-xs text-amber-900">
+66:             <div className="flex items-center gap-2 text-[12px] leading-tight">
+67:               <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+68:               <span>
+69:                 સ્થાનિક હવામાન અને માટીની વિગતો માટે સ્થાન (GPS) જરૂરી છે.
+70:               </span>
+71:             </div>
+72:             <button
+73:               type="button"
+74:               onClick={() => requestDeviceLocation(true)}
+75:               className="flex items-center gap-1 shrink-0 px-2.5 py-1 bg-[#0B5D34] text-white text-[11px] font-bold rounded-lg hover:bg-[#084828] active:scale-95 transition-all cursor-pointer shadow-xs"
+76:             >
+77:               <RefreshCw className="w-3 h-3" />
+78:               <span>પરવાનગી આપો</span>
+79:             </button>
+80:           </div>
+81:         )}
+82: 
+83:         {/* 2. Elevated Weather Card */}
+84:         <MobileWeatherCard
+85:           weather={weatherData}
+86:           districtName={activeDistrictName}
+87:           isLoading={isLoadingWeather}
+88:           onCardClick={() => navigate('/weather')}
+89:         />
+90: 
+91:         {/* 3. Live Gujarat APMC Mandi Bhav Ticker */}
+92:         <GujaratMandiTicker />
+93: 
+94:         {/* 4. Facility Grid on Phone, 4 cols on Desktop */}
+95:         <MobileCategoryGrid
+96:           onSelectCategory={handleSelectCategory}
+97:         />
+98: 
+99:         {/* 5. Best Offers (Carousel on Phone, Grid on Desktop) */}
+100:         <MobileFeaturedOffers

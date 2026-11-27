@@ -1,0 +1,30 @@
+{
+  "name": "smartkrushi",
+  "version": "1.0.0",
+  "description": "SmartKrushi — AI-Powered Smart Agriculture Assistant Platform",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix frontend start",
+    "start:backend": "powershell -ExecutionPolicy Bypass -File ./scripts/run-backend.ps1",
+    "start:frontend": "npm --prefix frontend start",
+    "dev": "powershell -ExecutionPolicy Bypass -File ./scripts/run-all.ps1",
+    "setup": "powershell -ExecutionPolicy Bypass -File ./scripts/setup.ps1",
+    "build:apk": "npm --prefix frontend run build:apk",
+    "test:backend": "powershell -ExecutionPolicy Bypass -File ./scripts/run-backend.ps1 -TestOnly",
+    "test:frontend": "npm --prefix frontend run android -- --dry-run || node -c frontend/src/lib/api.js",
+    "test": "node tests/verify_project.js"
+  },
+  "keywords": [
+    "smartkrushi",
+    "agriculture",
+    "farming",
+    "react-native",
+    "expo",
+    "django",
+    "weather",
+    "soil",
+    "plant-health"
+  ],
+  "author": "SmartKrushi Team",
+  "license": "MIT"
+}

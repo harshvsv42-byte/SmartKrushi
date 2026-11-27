@@ -1,0 +1,7 @@
+state,district,taluka,crop_name,growing_season,crop_duration_days,area_hectares,production_tonnes,yield_kg_per_hectare,year,data_source
+Gujarat,Valsad,Pardi,Paddy,Kharif,130,12500,40000,3200,2024,State Agriculture Department
+Gujarat,Ahmedabad,Sanand,Wheat,Rabi,120,24000,84000,3500,2024,State Agriculture Department
+Gujarat,Surat,Bardoli,Sugarcane,Annual,365,18500,1387500,75000,2024,Sugar Directorate
+Gujarat,Rajkot,Gondal,Groundnut,Kharif,110,42000,92400,2200,2024,Oilseeds Board
+Gujarat,Rajkot,Jetpur,Cotton,Kharif,160,58000,127600,2200,2024,Cotton Corporation
+Gujarat,Mehsana,Unjha,Cumin,Rabi,105,16000,12800,800,2024,Spices Board

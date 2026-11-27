@@ -1,0 +1,5 @@
+state,district,taluka,village,latitude,longitude,temperature,feels_like,humidity,rainfall,wind_speed,wind_direction,pressure,weather_condition,recorded_at,data_source
+Gujarat,Valsad,Pardi,Killa-Pardi,20.6105,72.9258,28.5,31.0,75.0,2.0,12.5,240,1011.2,Light rain,2024-10-02T12:00:00Z,Field Station
+Gujarat,Ahmedabad,Sanand,Bopal,23.0225,72.5714,33.0,35.0,42.0,0.0,9.0,180,1012.5,Clear sky,2024-10-02T12:00:00Z,Field Station
+Gujarat,Surat,Bardoli,Kadod,21.1702,72.8311,30.2,33.0,68.0,0.0,14.0,220,1010.8,Partly cloudy,2024-10-02T12:00:00Z,Field Station
+Gujarat,Rajkot,Gondal,Ribda,22.3039,70.8022,34.5,36.5,38.0,0.0,11.0,270,1011.0,Mainly clear,2024-10-02T12:00:00Z,Field Station

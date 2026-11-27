@@ -1,0 +1,72 @@
+{
+  "expo": {
+    "name": "SmartKrushi",
+    "slug": "smartkrushi",
+    "owner": "patel_jilu",
+    "version": "1.0.0",
+    "scheme": "smartkrushi",
+    "orientation": "portrait",
+    "icon": "./frontend/assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jilu.smartkrushi"
+    },
+    "android": {
+      "package": "com.jilu.smartkrushi",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#0B5D34",
+        "foregroundImage": "./frontend/assets/android-icon-foreground.png"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./frontend/assets/favicon.png"
+    },
+    "plugins": [
+      "expo-status-bar",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow SmartKrushi to access your GPS location for local weather and soil analysis."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow SmartKrushi to select crop photos for disease checks.",
+          "cameraPermission": "Allow SmartKrushi to take crop photos for disease checks.",
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-router",
+        {
+          "root": "./frontend/src/app"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0B5D34",
+          "image": "./frontend/assets/splash-icon.png",
+          "imageWidth": 160
+        }
+      ],
+      "./frontend/plugins/withCleartextTraffic"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "f5c0f722-73e0-49e4-ae71-33a78a4e76e1"
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+Created At: 2026-11-21T12:11:51+05:30
+Completed At: 2026-11-21T12:11:51+05:30
+Created At: 2026-11-21T12:11:51+05:30
+Completed At: 2026-11-21T12:11:51+05:30
+Showing lines 1-120 of 296
+1: import { useState, useRef, useEffect } from 'react';
+2: import { MapPin, Search, Mic, ChevronDown, Check, Globe } from 'lucide-react';
+3: import { useTranslation } from 'react-i18next';
+4: import { Link, useNavigate } from 'react-router-dom';
+5: import farmerAvatar from '../../assets/farmer_avatar.jpg';
+6: import { useAuth } from '../../context/AuthContext';
+7: import { useApp } from '../../context/AppContext';
+8: import { locationApi } from '../../api/services';
+9: import { getProfileImageUrl } from '../../utils/imageUrl';
+10: 
+11: const GUJARATI_DAYS = ['રવિવાર', 'સોમવાર', 'મંગળવાર', 'બુધવાર', 'ગુરુવાર', 'શુક્રવાર', 'શનિવાર'];
+12: const GUJARATI_MONTHS = [
+13:   'જાન્યુઆરી', 'ફેબ્રુઆરી', 'માર્ચ', 'એપ્રિલ', 'મે', 'જૂન',
+14:   'જુલાઈ', 'ઑગસ્ટ', 'સપ્ટેમ્બર', 'ઑક્ટોબર', 'નવેમ્બર', 'ડિસેમ્બર'
+15: ];
+16: 
+17: const MobileHeader = ({
+18:   selectedDistrict,
+19:   onSelectDistrict,
+20:   onSearch,
+21:   searchQuery,
+22:   setSearchQuery
+23: }) => {
+24:   const { t, i18n } = useTranslation();
+25:   const { user } = useAuth();
+26:   const { location, setLanguage: setGlobalLanguage, requestDeviceLocation, setManualDistrict } = useApp();
+27:   const navigate = useNavigate();
+28: 
+29:   const [districtsModalOpen, setDistrictsModalOpen] = useState(false);
+30:   const [langMenuOpen, setLangMenuOpen] = useState(false);
+31:   const [districtsList, setDistrictsList] = useState([]);
+32:   const [isListening, setIsListening] = useState(false);
+33: 
+34:   const langRef = useRef(null);
+35: 
+36:   const currentDistrict = selectedDistrict || location;
+37: 
+38:   useEffect(() => {
+39:     locationApi.listDistricts().then((res) => {
+40:       if (res.data) {
+41:         const list = Array.isArray(res.data) ? res.data : (res.data.results || []);
+42:         if (list.length > 0) setDistrictsList(list);
+43:       }
+44:     }).catch((err) => console.log('Error fetching districts:', err));
+45:   }, []);
+46: 
+47:   useEffect(() => {
+48:     const handleClickOutside = (e) => {
+49:       if (langRef.current && !langRef.current.contains(e.target)) {
+50:         setLangMenuOpen(false);
+51:       }
+52:     };
+53:     document.addEventListener('mousedown', handleClickOutside);
+54:     return () => document.removeEventListener('mousedown', handleClickOutside);
+55:   }, []);
+56: 
+57:   // Format dynamic date
+58:   const now = new Date();
+59:   const dayName = GUJARATI_DAYS[now.getDay()];
+60:   const dateNum = String(now.getDate()).padStart(2, '0');
+61:   const monthName = GUJARATI_MONTHS[now.getMonth()];
+62:   const yearNum = now.getFullYear();
+63:   const formattedDate = `${dayName}, ${dateNum} ${monthName}, ${yearNum}`;
+64: 
+65:   const handleLanguageChange = (lng) => {
+66:     setGlobalLanguage(lng);
+67:     setLangMenuOpen(false);
+68:   };
+69: 
+70:   const handleVoiceSearch = () => {
+71:     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+72:     if (!SpeechRecognition) {
+73:       alert('Speech recognition is not supported in this browser.');
+74:       return;
+75:     }
+76:     const recognition = new SpeechRecognition();
+77:     recognition.lang = i18n.language === 'gu' ? 'gu-IN' : i18n.language === 'hi' ? 'hi-IN' : 'en-IN';
+78:     recognition.start();
+79:     setIsListening(true);
+80: 
+81:     recognition.onresult = (event) => {
+82:       const transcript = event.results[0][0].transcript;
+83:       setSearchQuery(transcript);
+84:       if (onSearch) onSearch(transcript);
+85:       setIsListening(false);
+86:     };
+87: 
+88:     recognition.onerror = () => setIsListening(false);
+89:     recognition.onend = () => setIsListening(false);
+90:   };
+91: 
+92:   return (
+93:     <header className="bg-[#0B5D34] text-white pt-4 pb-10 px-5 rounded-b-[32px] relative z-10 transition-colors shadow-sm">
+94:       
+95:       {/* Brand & Greeting Row */}
+96:       <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+97:         <div className="flex items-center gap-2">
+98:           <img src="/applogo.jpg" alt="SmartKrushi Logo" className="w-8 h-8 rounded-lg shadow-xs object-cover border border-white/20" />
+99:           <span className="font-extrabold text-[15px] tracking-tight text-emerald-100">SmartKrushi</span>
+100:         </div>
+101:         <span className="text-[11px] font-semibold text-emerald-200/90 bg-black/20 px-2 py-0.5 rounded-full">
+102:           સ્માર્ટ કૃષિ સહાયક
+103:         </span>
+104:       </div>
+105: 
+106:       {/* Greeting and Profile Top Row */}
+107:       <div className="flex items-start justify-between mt-1">
+108:         
+109:         {/* Left Side: Greeting, Date, Location */}
+110:         <div>
+111:           <h1 className="text-[22px] font-extrabold text-white tracking-tight leading-tight">
+112:             {t('home.greeting', 'નમસ્તે, સુપ્રભાત')}
+113:           </h1>
+114: 
+115:           {/* Date with dropdown indicator */}
+116:           <div className="flex items-center gap-1 text-[13px] text-white/90 font-medium mt-0.5 cursor-pointer">
+117:             <span>{formattedDate}</span>
+118:             <ChevronDown className="w-3.5 h-3.5 opacity-80" />
+119:           </div>
+120: 

@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "fieldMap": "Field Map",
+    "diagnostics": "Diagnostics",
+    "market": "Market",
+    "schemes": "Schemes"
+  },
+  "sidebar": {
+    "fieldTools": "Field Tools",
+    "insights": "AI-Driven Insights",
+    "weather": "Weather Intelligence",
+    "soil": "Soil Analysis",
+    "calendar": "Crop Calendar",
+    "alerts": "Alerts",
+    "generateReport": "Generate Report",
+    "support": "Support"
+  },
+  "dashboard": {
+    "weather": {
+      "today": "Today",
+      "humidity": "Humidity",
+      "wind": "Wind"
+    },
+    "soil": {
+      "health": "Soil Health",
+      "nitrogen": "Nitrogen (N)",
+      "moisture": "Moisture Level",
+      "warning": "Warning: Below 30%"
+    },
+    "briefing": {
+      "title": "Morning Briefing",
+      "irrigation": "Irrigation Alert",
+      "frost": "Frost Warning",
+      "activate": "Activate Now"
+    }
+  },
+  "market": {
+    "title": "Market & Resource Intelligence",
+    "subtitle": "Real-time economics for Punjab Central Region",
+    "live": "Market Live",
+    "prices": "Mandi/Market Prices",
+    "updated": "Updated: 2 mins ago",
+    "wheat": "Wheat",
+    "rice": "Rice (Paddy)",
+    "cotton": "Cotton",
+    "schemes": "Government Schemes",
+    "eligible": "Eligible Schemes for You",
+    "apply": "Easy Apply Wizard"
+  },
+  "auth": {
+    "title": "Sign In to Smart Agriculture",
+    "subtitle": "Enter your mobile number to receive a verification OTP",
+    "phoneLabel": "Mobile Number",
+    "phonePlaceholder": "e.g. 9876543210",
+    "sendOtp": "Send OTP",
+    "enterOtp": "Enter 6-Digit OTP",
+    "verifyAndSignIn": "Verify & Sign In",
+    "resendOtp": "Resend OTP",
+    "invalidPhone": "Please enter a valid 10-digit mobile number.",
+    "sendOtpFailed": "Failed to send OTP. Please try again.",
+    "invalidOtp": "Please enter a valid 6-digit OTP.",
+    "verifyFailed": "Invalid OTP or verification expired.",
+    "changePhone": "Change phone number",
+    "logout": "Logout"
+  },
+  "profile": {
+    "title": "Farmer Profile",
+    "personalInfo": "Personal Information",
+    "farmLocation": "Farm Location",
+    "preferences": "Preferences",
+    "fullName": "Full Name",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "state": "State",
+    "district": "District",
+    "taluka": "Taluka / Block",
+    "village": "Village",
+    "farmSize": "Farm Size (hectares)",
+    "crops": "Primary Crops",
+    "language": "Preferred Language",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "edit": "Edit Profile",
+    "updated": "Profile updated successfully!",
+    "saveSuccess": "Profile updated successfully!",
+    "saveError": "Failed to save profile. Please try again."
+  },
+  "home": {
+    "greeting": "Namaste, Good Morning",
+    "changeLocation": "Change Location",
+    "searchPlaceholder": "Search here...",
+    "weather": {
+      "humidity": "Humidity",
+      "rainfall": "Rainfall",
+      "pressure": "Pressure",
+      "windSpeed": "Wind Speed",
+      "sunrise": "Sunrise",
+      "sunset": "Sunset"
+    },
+    "categoriesTitle": "Features & Investments",
+    "categories": {
+      "duration": "Duration",
+      "soil": "Soil Health",
+      "lowRisk": "Low Risk",
+      "protection": "Protection"
+    },
+    "bestOffers": "Best Highlights",
+    "viewAll": "View All",
+    "bottomNav": {
+      "home": "Home",
+      "allFarms": "All Crops",
+      "stats": "Market Stats",
+      "myProfile": "My Profile"
+    }
+  }
+}
